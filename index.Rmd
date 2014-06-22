@@ -37,6 +37,7 @@ This is the calculation
 ```{r}
 133000/1400
 ```
+
 ---
 ## App Layout
 ### Left sidebar
@@ -46,6 +47,7 @@ This is the calculation
 - **Plot Tab:** Interactive plot of main species measured
 - **Table Tab:** Interactive table of raw data
 - **Dataset Tab:** Dataset details and acknowledgements
+
 ---
 ## Details
 ### Plot Tab
@@ -61,10 +63,9 @@ Displays six columns of data from the dataset in an interactive table
 - **Column names:** See Dataset tab for details
 - **Checkboxes:** Unchecking the checkbox removes the corresponding column
 - **Details:** Hyperlinks to massive database of fish
+
 ---
 I hope you enjoy exploring this dataset through the app.
 
 ENJOY!
-
-
 
