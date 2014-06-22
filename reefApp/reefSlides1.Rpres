@@ -1,29 +1,30 @@
 Great Barrier Reef App
 ======================
-- One of the natural wonders of the world
-- App displays results of a reef fish-counting survey
-- Data displayed interactively in graph and table
-- Thanks to Ian Walkden Brown for a really interesting dataset
+- The Great Barrier Reef is the World's largest coral reef system
+- Much is protected by [Great Barrier Reef Marine Park](http://www.gbrmpa.gov.au/)
+- Rich diversity of marine life
 
-Introduction
-============
-The Reef
---------
-- World's largest coral reef system
-- Much protected by [Great Barrier Reef Marine Park](http://www.gbrmpa.gov.au/)
-
-```{r}
-area = 1400*95 # miles long x miles wide
-area # square miles
-```
-
-***
+Background
+==========
 Dataset
 -------
 - [Great Barrier Reef Fish Biological Data](http://era.deedi.qld.gov.au/1776/)
+- Reef fish-counting survey (Ian Walkden Brown)
 - Over 9671 observations of 15 variables
 - In csv file, so not easy to explore
-        
+***
+The App
+-------
+Displays data interactively:
+
+- graph
+- table
+
+Reef is 1400 mi long, 133,000 sq mi. Average width?
+```{r}
+133000/1400
+```
+
 App Layout
 ==========
 left:50%
@@ -51,9 +52,7 @@ Bar chart of the frequency with which fish were found
 - **Slider:** Adjusts the number of species shown
 
 ***
-```{r}
 
-```
 ![Plot](reefSlides-figure/plot.png)
 
 Table Tab
@@ -64,6 +63,9 @@ Displays six columns of data from the dataset in an interactive table
 - **Checkboxes:** Unchecking the checkbox removes the corresponding column
 - **Details:** Hyperlinks to massive database of fish
 
+ENJOY!
+
 ***
 
 ![Table](reefSlides-figure/table.png)
+
