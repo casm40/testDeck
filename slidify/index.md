@@ -34,8 +34,13 @@ What is the average width in miles?
 
 *** .explanation
 This is the calculation
-```{r}
+
+```r
 133000/1400
+```
+
+```
+## [1] 95
 ```
 
 ---

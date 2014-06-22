@@ -1,0 +1,16 @@
+base
+caret
+datasets
+devtools
+e1071
+ElemStatLearn
+ggplot2
+graphics
+grDevices
+lattice
+methods
+randomForest
+shiny
+slidify
+stats
+utils
