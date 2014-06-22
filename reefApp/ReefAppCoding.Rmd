@@ -1,0 +1,121 @@
+Barrier Reef App
+================
+Download Data
+----------
+```{r}
+setwd("~/Google Drive/Coursera/Data Analysis/Developing data products/reefApp")
+download.file("http://era.deedi.qld.gov.au/1776/1/Great_Barrier_Reef_Food_Fish_Stocks.asc","data/fish1.txt",method="curl")
+df <- read.csv("data/fish1.csv",header=TRUE)
+df <- df[,c(2,3,4,6,8,10)]
+```
+
+Clean Data
+----------
+### Link to fish database
+
+Species data structure:
+1. Genus name
+2. Species name
+3. +/- other
+
+species <- reef$Species word1
+genus <- reef$Species word2
+link <- http:://www.fishbase.org/summary/Species-genus.html
+http://www.fishbase.org/summary/Lethrinus-laticaudis.html
+
+Test strings:
+Gymnocranius audleyi (=bitorquatus) # 330
+Nemipterus peronii?
+Epinephelus rivulatus=summana=ongus # 654
+Prob. L. laticaudis (fraenatus) #34 ## Prob. L. = Lethrinus #337
+Gymnothorax sp. # 522
+Halichoeres sp.? # 670
+
+^[A-Za-z]*[[:space:]][A-Za-z]*
+([=][\s][A-Za-z]*$) # capture =...
+
+```{r}
+library(stringr)
+df$Species <- sub("Prob. L.","Lethrinus",df$Species)
+df$Species[337]
+df$url <- str_extract(df$Species,"^\\w*\\s\\w*")
+df$url[330]
+df$url[654]
+df$url[337]
+df$url[522]
+df$url[670]
+df$url <- sub(" ","-",df$url)
+df$url <- paste("http://www.fishbase.org/summary/",df$url,".html",sep="")
+df$url[330]
+df$url[654]
+df$url[337]
+df$url[522]
+df$url[670]
+write.table(df,file="data/reefData.txt")
+```
+Present URL
+----------
+```{r}
+df$Details <- paste("<a href=","'",df$url,"'",">",df$Species,"</a>",sep="")
+head(df$urls)
+write.table(df,file="data/reefData.txt")
+```
+
+```{r}
+df <- read.table("data/reefData.txt",header=TRUE)
+df <- df[,c(1:6,8)]
+write.table(df,"data/reefData.txt")
+```
+
+
+
+
+Create Graphs
+-------------
+
+1. Count by date
+2. Count by region
+3. Count by reef (slider to filter top 10-101)
+4. Species distribution: top 10
+```{r}
+setwd("~/Google Drive/Coursera/Data Analysis/Developing data products/reefApp")
+library(ggplot2)
+library(lubridate)
+reef <- read.table("data/reefData.txt")
+reef$Date <- dmy(reef$Date)
+g <- ggplot(reef,aes(Region))
+g + geom_bar()
+g1 <- ggplot(reef,aes(Reef))
+g1 + geom_bar()
+g2 <- ggplot(reef,aes(Date))
+g2 + geom_bar()
+g3 <- ggplot(reef[1:10,],aes(Species))
+g3 + geom_bar()
+library(ggplot2)
+species <- as.data.frame(table(unique(reef)$Species))
+colnames(species) <- c("Species","Count")
+library(plyr)
+species <- arrange(species,desc(Count),Species)
+g4 <- ggplot(species[1:30,],aes(Species,Count))
+g4+geom_bar()+ theme(axis.text.x = element_text(angle = 90)) + ggtitle("Count Frequency by Species")
+```
+
+```{r}
+map3 <- Leaflet$new()
+map3$setView(c(-18.242835,147.451012), zoom = 13)
+map3$marker(c(-17.5228687,146.0301609), bindPopup = "Innisfail")
+map3$marker(c(), bindPopup = "Cairns")
+map3$marker(c(-19.261112,146.8169144),bindPopup="Townsville")
+map3$print("Towns and Cities near the Great Barrier Reef")
+```
+
+```{r}
+library(maps)
+library(mapdata)
+map('worldHires',"Australia")
+map('worldHires',"Queensland")
+points(146.8169144,-19.261112,col=1,pch=19,cex=2)
+points(145.7305034,-16.9203249,col=2,pch=19,cex=2)
+points(149.1829713,-21.141857,col=3,pch=19,cex=2)
+```
+
