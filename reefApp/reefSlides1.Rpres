@@ -1,26 +1,45 @@
 Great Barrier Reef App
-======================
-- The Great Barrier Reef is the World's largest coral reef system
-- Much is protected by [Great Barrier Reef Marine Park](http://www.gbrmpa.gov.au/)
-- Rich diversity of marine life
+=========================
+---
+title       : Great Barrier Reef App
+subtitle    : Data Products Coursera Course
+author      : casm
+job         : R Hacker
+framework   : io2012        # {io2012, html5slides, shower, dzslides, ...}
+highlighter : highlight.js  # {highlight.js, prettify, highlight}
+hitheme     : tomorrow      # 
+widgets     : [bootstrap, quiz]            # {mathjax, quiz, bootstrap}
+mode        : selfcontained # {standalone, draft}
+---
+--- &radio
+## Question
+Reef is 1400 mi long, and 133,000 sq mi.
 
+What is the average width in miles?
+
+1. 35
+2. 65
+3. _95_
+4. 115
+---
 Background
 ==========
+The Reef
+-------
+- True natural wonder of the world
+- Visible from space
+- Remarkable habitat for spectacular marine life
+
+***
 Dataset
 -------
 - [Great Barrier Reef Fish Biological Data](http://era.deedi.qld.gov.au/1776/)
 - Reef fish-counting survey (Ian Walkden Brown)
 - Over 9671 observations of 15 variables
 - In csv file, so not easy to explore
-***
-The App
--------
-Displays data interactively:
 
-- graph
-- table
-
-Reef is 1400 mi long, 133,000 sq mi. Average width?
+*** .explanation
+This is the calculation
 ```{r}
 133000/1400
 ```
