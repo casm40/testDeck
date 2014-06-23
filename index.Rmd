@@ -38,7 +38,7 @@ This is the calculation
 133000/1400
 ```
 
----
+--- &twocol w1:40% w2:60%
 ## App Layout
 
 ### Sidebar
@@ -55,7 +55,7 @@ This is the calculation
 ---
 ## Details
 
-### Plot Tab
+### Plot Tab:
 
 Bar chart of fish frequency
 
@@ -63,7 +63,7 @@ Bar chart of fish frequency
 - Y-Axis: Count of fish in dataset
 - Slider: Adjusts the number of species shown
 
-### Table Tab
+### Table Tab:
 
 Shows up to six columns in interactive table
 
@@ -72,3 +72,7 @@ Shows up to six columns in interactive table
 - Details: Hyperlinks to database with details of fish
 
 ENJOY!
+
+
+
+

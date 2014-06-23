@@ -46,15 +46,12 @@ This is the calculation
 --- &twocol w1:40% w2:60%
 ## App Layout
 
-*** left
-Sidebar
+### Sidebar
 
 - **Slider:** fish species in Plot
 - **Checkboxes:** table columns.
 
-*** right
-
-Main panel
+### Main panel
 
 - **Plot Tab:** Interactive plot of main species measured
 - **Table Tab:** Interactive table of raw data
@@ -63,20 +60,24 @@ Main panel
 ---
 ## Details
 
-*** left
+### Plot Tab:
 
-**Plot Tab:** Bar chart of fish frequency
+Bar chart of fish frequency
 
 - X-Axis: Species names
 - Y-Axis: Count of fish in dataset
 - Slider: Adjusts the number of species shown
 
-*** right
+### Table Tab:
 
-**Table Tab:** Shows up to six columns in interactive table
+Shows up to six columns in interactive table
 
 - Column names: See Dataset tab for details
 - Checkboxes: Checked columns are shown
 - Details: Hyperlinks to database with details of fish
 
 ENJOY!
+
+
+
+
